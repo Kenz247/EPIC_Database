@@ -138,7 +138,6 @@
       ?>
         </tbody>
       </table>
-    </div>
     </p>
     <hr />
 
@@ -148,6 +147,7 @@
         echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
       ?>
     </p>
+  </div>
 
   <?php
     }

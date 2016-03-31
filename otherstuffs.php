@@ -11,10 +11,8 @@
     <p>
       <b>DB Connection</b>:
       <?php
-
         error_reporting( E_STRICT );
         mysqli_report( MYSQLI_REPORT_STRICT );
-
         try {
           $mysqli = new mysqli( DB_SERVER, DB_USER, DB_PW, DB_NAME );
           echo ( '<span class="label label-success">Success</span>' );
@@ -53,14 +51,11 @@
     <p>
       <b>SQL to Prepare</b>:
       <?php
-
         $sql = null;
           $sql = 'SELECT department.id as Department_Id, department.Name as Department_Name ' .
                   'FROM department ' .
                   'ORDER BY department.name asc;';
-
         echo ( '<code>' . htmlentities( $sql ) . '</code>' );
-
       ?>
     </p>
 
@@ -104,17 +99,13 @@
         <form>
           <select name="stuff" class="form-control" style="width:200px">
       <?php
-
         $departmnet_name = null;
         $department_id=null;
         $stmt->bind_result($department_id, $department_name);
-
         while ( $stmt->fetch() )
         {
             echo ('<option value=' . htmlentities($department_id) . ' text-align:center>' . htmlentities($department_name) . '</value>');
         }
-
-
         $stmt->close();
       ?>
           </select>
@@ -143,7 +134,6 @@
     <p>
       <b>SQL to Prepare</b>:
       <?php
-
         $sql = null;
         if ( !is_null( $param ))
         {
@@ -154,9 +144,7 @@
                   'LEFT JOIN materials ON project.ID = materials.ProjectId ' .
                   'WHERE department.id = ? ';
         }
-
         echo ( '<code>' . htmlentities( $sql ) . '</code>' );
-
       ?>
     </p>
 
@@ -217,11 +205,9 @@
       <h1 style="text-align:left"><small>Results</small></h1>
       <ul class="list-group">
       <?php
-
         $department_name = null;
         $money_spent_per_department = null;
         $stmt->bind_result($department_name, $money_spent_per_department);
-
         while ( $stmt->fetch() )
         {
           echo '<address>';
@@ -229,9 +215,7 @@
            echo('Amount Spent: $' . htmlentities($money_spent_per_department) . '<br>');
           echo '</address>';
         }
-
         $stmt->close();
-
       ?>
     </ul>
     </p>
@@ -264,7 +248,6 @@
     <p>
       <b>SQL to Prepare</b>:
       <?php
-
         $sql = null;
         if ( !is_null( $param ) )
         {
@@ -290,12 +273,8 @@
                       ') ' .
                     ') ' .
                   '); ';
-
         }
-
-
         echo ( '<code>' . htmlentities( $sql ) . '</code>' );
-
       ?>
     </p>
 
@@ -357,7 +336,6 @@
       <h1>Results</h1>
       <ul class="list-group">
       <?php
-
         $sfirst_name = null;
         $slast_name = null;
         $course_name = null;
@@ -365,7 +343,6 @@
         $course_section=null;
         $prof_name=null;
         $stmt->bind_result( $sfirst_name, $slast_name, $course_name, $course_num, $course_section, $prof_name);
-
         while ( $stmt->fetch() )
         {
           echo '<li class="list-group-item">';
@@ -375,9 +352,7 @@
           echo ('Student Name: '. htmlentitites($sfirst_name . " " . $slast_name));
           echo '</li>';
         }
-
         $stmt->close();
-
       ?>
     </ul>
     </p>
@@ -413,7 +388,6 @@
     <p>
       <b>SQL to Prepare</b>:
       <?php
-
         $sql = null;
         if ( !is_null( $param ) )
         {
@@ -435,12 +409,8 @@
                       ') ' .
                     ') ' .
                     'order by section.CourseNum asc, section.SecNum asc; ' ;
-
         }
-
-
         echo ( '<code>' . htmlentities( $sql ) . '</code>' );
-
       ?>
     </p>
 
@@ -502,12 +472,10 @@
       <h1>Results</h1>
       <ul class="list-group">
       <?php
-
         $course_name = null;
         $sec_num = null;
         $course_num = null;
         $stmt->bind_result( $course_name, $sec_num, $course_num);
-
         while ( $stmt->fetch() )
         {
           echo '<li class="list-group-item">';
@@ -515,9 +483,7 @@
           echo ( 'Course Number: '. htmlentities( $course_num ) . '-'. htmlentities($sec_num) .'<br>' );
           echo '</li>';
         }
-
         $stmt->close();
-
       ?>
     </ul>
     </p>

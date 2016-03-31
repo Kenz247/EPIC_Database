@@ -288,12 +288,6 @@
 			<hr />
 			<hr />
 
-			<p>
-				<a href="index.php?email_address=stuff" target="_blank">bob</a>
-			</p>
-
-
-
 				<hr />
 
 				<p>

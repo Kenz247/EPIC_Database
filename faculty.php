@@ -114,7 +114,7 @@ if ( isset( $_GET[ PARAM ] ) )
 				<hr />
 
         <p>
-        <h1>Who is working on projects?</h1>
+        <h1>Who is working on projects? <small>(Some people might not have sent emails)</small></h1>
           <table class="table table-bordered">
             <thead>
               <tr>

@@ -1,6 +1,6 @@
 <body>
   <?php
-  $foo = 5;
+  $foo = 7;
     include "header.php";
   ?>
   <div class="container" style="padding: 40px 15px">
@@ -32,8 +32,8 @@
 
   <form method="GET" action="<?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?>">
     <div class="form-group">
-      <label for="exampleInput">Enter Student Id</label>
-        <input type="text" class="form-control" id="exampleInput" name="<?php echo htmlentities( PARAM_NAME ); ?>" placeholder="n/a" value="<?php echo htmlentities( ( is_null( $param ) )?( '' ):( $param ) ) ?>">
+      <label for="exampleInput">Enter Student Id <small>(1 is the only id that has data for it)</small></label>
+        <input type="text" class="form-control" id="exampleInput" name="<?php echo htmlentities( PARAM_NAME ); ?>" placeholder="n/a" value="1">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>

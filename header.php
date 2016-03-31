@@ -92,7 +92,26 @@
         <?php if($foo == 5){
           echo('class="active"');
         }
-        ?>><a href="otherstuffs.php">Other Stuff</a></li>
+        ?>
+        ><a href="complexquery1.php">Query1</a></li>
+        <li
+        <?php if($foo == 6){
+          echo('class="active"');
+        }
+        ?>
+        ><a href="complexquery2.php">Query2</a></li>
+        <li
+        <?php if($foo == 7){
+          echo('class="active"');
+        }
+        ?>
+        ><a href="complexquery3.php">Query3</a></li>
+        <li
+        <?php if($foo == 8){
+          echo('class="active"');
+        }
+        ?>
+        ><a href="complexquery4.php">Query4</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

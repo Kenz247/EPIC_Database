@@ -273,7 +273,7 @@
 						 echo ('<strong> Project: ' . htmlentities($project_name) . '</strong><br>');
 						 echo ('Status: ' . htmlentities($project_status) . '<br>');
 						 echo ('Start Date: ' . htmlentities($project_start) . '<br>');
-						 echo ('End Date: ' . htmlentities($content). '<br>');
+						 echo ('End Date: ' . htmlentities($project_end). '<br>');
 						 echo('Budget: ' . htmlentities($project_budget) . '<br>');
 						 echo('Project Leader: ' . htmlentities($project_leader) . '<br>');
 						echo '</address>';

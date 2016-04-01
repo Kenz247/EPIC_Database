@@ -68,13 +68,19 @@
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner" role="listbox">
 				    <div class="item active">
-				      <img src="art.jpg" alt="Art">
+							<a href="project.php?stuff=2">
+				      	<img src="art.jpg" alt="Art">
+							</a>
 				    </div>
 				    <div class="item">
-				      <img src="bike.jpg" alt="Electric Bike">
+							<a href="project.php?stuff=3">
+				      	<img src="bike.jpg" alt="Electric Bike">
+							</a>
 				    </div>
 						<div class="item">
-							<img src="oscar.jpg" alt="Oscar the Talking Trash Can">
+							<a href="project.php?stuff=1">
+								<img src="oscar.jpg" alt="Oscar the Talking Trash Can">
+							</a>
 						</div>
 				  </div>
 

@@ -6,7 +6,7 @@
   <div class="container" style="padding: 40px 15px">
 
     <div class="page-header">
-      <h1>Student</h1>
+      <h1>Students</h1>
     </div>
     <p>
       <b>DB Connection</b>:

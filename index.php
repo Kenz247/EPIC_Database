@@ -7,10 +7,9 @@
 		<div class="container" style="padding: 40px 15px" align="center">
 
 			<div class="page-header" align="left">
-				<h1><strong>E</strong><small>xterally Collaborative</small> <strong>P</strong><small>roject Based</small> <Strong>I</Strong><small>nterdisciplinary</small> <Strong>C</Strong><small>ulture</small></h1>
+				<h1>E<small>xterally Collaborative</small> P<small>roject Based</small> I<small>nterdisciplinary</small> C<small>ulture</small></h1>
 			</div>
 
-			<hr />
 
 			<p>
 				<b>DB Connection</b>:
@@ -54,7 +53,6 @@
 				{
 			?>
 
-				<hr />
 
 
 				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -95,11 +93,6 @@
 				  </a>
 				</div>
 
-				<div class="container" align="center">
-					<h2>About</h2>
-					<p class="lead">Epic is awesome.</p>
-				</div>
-
 				<p>
 					<b>DB Disconnection</b>:
 					<?php
@@ -117,7 +110,7 @@
 <p>At Wentworth, we are open to external collaborators of all sorts, from new start-up businesses to major corporations to non-profits of all sizes to government bodies and agencies at all levels (federal, state and local). We are also interested in engaging learning opportunities wherever they arise. For instance, our mechanical engineering students have recently refined the design of stoves produced by Aid Africa, a non-governmental organization (NGO) active in northern Uganda!</p>
 <p><span style="color: #cc0000; font-size: 1.75em;">P</span> is for <strong>project-based.</strong> We believe that there&#8217;s an essential role for traditional lectures while allowing students to learn more by getting involved in <strong>experiential learning</strong>. At Wentworth, as in most workplaces, experiential learning takes place largely through work on projects &#8211; sustained efforts with specified objectives along with constraints on time and other resources. We choose projects that we believe offer the best learning opportunities for our students. Some of them are over in a few class sessions; others stretch over several semesters, with different teams of students carrying out different phases.</p>
 <p><span style="color: #cc0000; font-size: 1.75em;">I</span> is for <strong>interdisciplinary.</strong> In their careers, our students will work side-by-side with people whose academic background and work experiences vary widely. We model that interaction by organizing interdisciplinary projects bringing together students from two or more majors. Whether it&#8217;s future architects and construction managers, industrial designers and biomedical engineers, or mechanical engineers and computer scientists, students learn more about their own discipline as well as other fields when they work together. Our faculty have discovered that they learn more this way, too.</p>
-<p><span style="color: #cc0000; font-size: 1.75em;">C</span> is for <strong>curricula</strong>. Opportunities for students from different disciplines to work together, and to do so with external organizations, aren&#8217;t limited to extracurricular activities within&#160;<a href="http://www.wit.edu/accelerate">Accelerate</a>&#160;or the&#160;<a href="http://wit.edu/clp/">Center for Community and Learning Partnerships (CLP),</a> clubs or select students. Externally collaborative, interdisciplinary projects are being built into all of our degree programs and required of all of our students.</p>
+<p><span style="color: #cc0000; font-size: 1.75em;">C</span> is for <strong>culture</strong>. Opportunities for students from different disciplines to work together, and to do so with external organizations, aren&#8217;t limited to extracurricular activities within&#160;<a href="http://www.wit.edu/accelerate">Accelerate</a>&#160;or the&#160;<a href="http://wit.edu/clp/">Center for Community and Learning Partnerships (CLP),</a> clubs or select students. Externally collaborative, interdisciplinary projects are being built into all of our degree programs and required of all of our students.</p>
 <p><span style="color: #cc0000; font-size: 1.75em;">Learning</span> is what it&#8217;s all about. EPIC Learning represents a significant departure from traditional models of teaching. We believe added value arises when students get hands-on experience that prepares them for rewarding jobs and successful careers. That was the rationale when Wentworth began its co-operative education (co-op) program in the 1970s. The same philosophy guides EPIC Learning today.</p>
 </div>
 

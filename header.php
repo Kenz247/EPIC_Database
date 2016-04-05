@@ -112,6 +112,12 @@
         }
         ?>
         ><a href="complexquery4.php">Query4</a></li>
+        <li
+        <?php if($foo == 9){
+          echo('class="active"');
+        }
+        ?>
+        ><a href="stolenwebsite.php">EPIC</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

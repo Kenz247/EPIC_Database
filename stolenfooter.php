@@ -13,6 +13,18 @@
 #footer4{
   float:left;
 }
+#footer5{
+  float:left;
+}
+#leopard{
+  float:left;
+}
+#outerfooter{
+  float:left;
+}
+#conversion{
+  float:left;
+}
 </style>
 <div id="footer1"><img alt="Wentworth Crest" height="109" src="http://www.wit.edu/images/crest.png" width="126"/></div>
 <div id="footer2"><!--This begins the footer2 div-->
@@ -56,7 +68,7 @@
 <div id="leopard"><!--This begins the leopard div-->
 <h6><a href="http://email.wit.edu/landing/">Wentworth Email Login</a></h6>
 <h6><a href="http://lconnect.wit.edu/">LConnect Login</a></h6>
-<h6><a href="http://bb.wit.edu/">Blackboard Login</a></h6>  
+<h6><a href="http://bb.wit.edu/">Blackboard Login</a></h6>
 </div>
 <!--This ends the leopard div--></div>
 <!--This ends the footer5 div-->

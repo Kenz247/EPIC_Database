@@ -7,7 +7,7 @@
 		<div class="container" style="padding: 40px 15px" align="center">
 
 			<div class="page-header" align="left">
-				<h1><span style="color: #cc0000; font-size: 1.5em;">E</span><small>xterally Collaborative </small><span style="color: #cc0000; font-size: 1.5em;">P</span><small>roject Based </small><span style="color: #cc0000; font-size: 1.5em;">I</span><small>nterdisciplinary </small><span style="color: #cc0000; font-size: 1.5em;">C</span><small>ulture</small></h1>
+				<h1><span style="color: #cc0000; font-size: 1.5em;">E</span><small style="color: black">xterally Collaborative </small><span style="color: #cc0000; font-size: 1.5em;">P</span><small style="color: black">roject Based </small><span style="color: #cc0000; font-size: 1.5em;">I</span><small style="color: black">nterdisciplinary </small><span style="color: #cc0000; font-size: 1.5em;">C</span><small style="color: black">ulture</small></h1>
 			</div>
 
 

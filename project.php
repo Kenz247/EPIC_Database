@@ -191,7 +191,7 @@
 					if ( !is_null( $param ))
 					{
 						$sql = 'SELECT project.Name as Project_Name, project.ProjectStatus as Project_Status, ' .
-						'project.About as about_project, '.
+						'project.About as about_project, faculty.email as pl_email, '.
 						'project.StartDate as Start_Date, project.EndDate as EndDate, project.Budget as Budget, ' .
 						'concat(faculty.LastName, ", ", faculty.FirstName) as Project_Leader ' .
 						'from project inner join faculty on project.LeaderId = faculty.ID where project.id = ? ';
@@ -263,22 +263,23 @@
 					$project_name = null;
 					$about_project = null;
 					$project_status = null;
+					$pl_email = null;
 					$project_start = null;
 					$project_end = null;
 					$project_budget = null;
 					$project_leader = null;
-					$stmt->bind_result($project_name, $project_status, $about_project, $project_start, $project_end, $project_budget, $project_leader);
+					$stmt->bind_result($project_name, $project_status, $about_project,$pl_email,$project_start, $project_end, $project_budget, $project_leader);
 
 					while ( $stmt->fetch() )
 					{
 						echo '<address>';
-						 echo ('<strong> Project: ' . htmlentities($project_name) . '</strong><br>');
-						 echo ('About: '. htmlentities($about_project) . '<br>');
-						 echo ('Status: ' . htmlentities($project_status) . '<br>');
-						 echo ('Start Date: ' . htmlentities($project_start) . '<br>');
-						 echo ('End Date: ' . htmlentities($project_end). '<br>');
-						 echo('Budget: ' . htmlentities($project_budget) . '<br>');
-						 echo('Project Leader: ' . htmlentities($project_leader) . '<br>');
+						 echo ('<h4><strong> Project: ' . htmlentities($project_name) . '</strong></h4>');
+						 echo ('<strong>About: </strong>'. htmlentities($about_project) . '<br>');
+						 echo ('<strong>Status: </strong>' . htmlentities($project_status) . '<br>');
+						 echo ('<strong>Start Date: </strong>' . htmlentities($project_start) . '<br>');
+						 echo ('<strong>End Date: </strong>' . htmlentities($project_end). '<br>');
+						 echo ('<strong>Budget:</strong> $' . htmlentities($project_budget) . '.00' .'<br>');
+						 echo ('<strong>Want to get involved? Contact:</strong> ' . htmlentities($project_leader) . '<strong> Email: </strong>' . htmlentities($pl_email));
 						echo '</address>';
 					}
 

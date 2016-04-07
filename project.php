@@ -96,7 +96,6 @@
         ?>
       </p>
 
-      <hr />
 
       <p>
         <h3>Please select a project:</h3>
@@ -138,7 +137,6 @@
 		<?php
 			}
 		?>
-		<hr />
 
 			<!--<b>DB Connection</b>:-->
 			<?php
@@ -181,7 +179,6 @@
 			{
 		?>
 
-			<hr />
 
 			<p>
 				<!--<b>SQL to Prepare</b>:-->

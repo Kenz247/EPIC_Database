@@ -10,7 +10,9 @@
 				<h1><span style="color: #cc0000; font-size: 1.5em;">E</span><small style="color: black">xterally Collaborative </small><span style="color: #cc0000; font-size: 1.5em;">P</span><small style="color: black">roject Based </small><span style="color: #cc0000; font-size: 1.5em;">I</span><small style="color: black">nterdisciplinary </small><span style="color: #cc0000; font-size: 1.5em;">C</span><small style="color: black">ulture</small></h1>
 			</div>
 
-
+			<div>
+				<h2 style="text-align:left">Current Projects</h2>
+			</div>
 			<p>
 				<!--<b>DB Connection</b>:-->
 				<?php

@@ -22,7 +22,7 @@ if ( isset( $_GET[ PARAM ] ) )
 
 
 			<p>
-				<b>DB Connection</b>:
+				<!--<b>DB Connection</b>:-->
 				<?php
 
 					error_reporting( E_STRICT );
@@ -30,10 +30,10 @@ if ( isset( $_GET[ PARAM ] ) )
 
 					try {
 						$mysqli = new mysqli( DB_SERVER, DB_USER, DB_PW, DB_NAME );
-						echo ( '<span class="label label-success">Success</span>' );
+						//echo ( '<span class="label label-success">Success</span>' );
 						$connected = true;
 					} catch (Exception $e) {
-						echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
+						//echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
 						$connected = false;
 					}
 				?>
@@ -44,13 +44,13 @@ if ( isset( $_GET[ PARAM ] ) )
 				{
 			?>
 					<p>
-						<b>Character Set UTF-8</b>:
+						<!--<b>Character Set UTF-8</b>:-->
 						<?php
 							if (!$mysqli->set_charset('utf8')) {
-								echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+								//echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
 								$connected = false;
 							} else {
-								echo ( '<span class="label label-success">Success</span>' );
+								//echo ( '<span class="label label-success">Success</span>' );
 							}
 						?>
 					</p>
@@ -66,7 +66,7 @@ if ( isset( $_GET[ PARAM ] ) )
 				<hr />
 
 				<p>
-					<b>SQL to Prepare</b>:
+					<!--<b>SQL to Prepare</b>:-->
 					<?php
 
 						    $sql = 'SELECT project.Name as project_name, faculty.lastName,faculty.firstname, faculty.Email ' .
@@ -76,37 +76,37 @@ if ( isset( $_GET[ PARAM ] ) )
 
 
 
-						echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+						//echo ( '<code>' . htmlentities( $sql ) . '</code>' );
 
 					?>
 				</p>
         <hr/>
 				<p>
-					<b>Preparing</b>:
+					<!--<b>Preparing</b>:-->
 					<?php
 						if ( !( $stmt = $mysqli->prepare( $sql ) ) )
 						{
-							echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+							//echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
 							return;
 						}
 						else
 						{
-							echo '<span class="label label-success">Success</span>';
+							//echo '<span class="label label-success">Success</span>';
 						}
 					?>
 				</p>
 
 				<p>
-					<b>Executing</b>:
+					<!--<b>Executing</b>:-->
 					<?php
 						if ( !$stmt->execute() )
 						{
-							echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+							//echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
 							return;
 						}
 						else
 						{
-							echo '<span class="label label-success">Success</span>';
+							//echo '<span class="label label-success">Success</span>';
 						}
 					?>
 				</p>
@@ -158,7 +158,7 @@ if ( isset( $_GET[ PARAM ] ) )
 
 
           <p>
-            <b>SQL to Prepare</b>:
+            <!--<b>SQL to Prepare</b>:-->
             <?php
 
               $sql = null;
@@ -174,22 +174,22 @@ if ( isset( $_GET[ PARAM ] ) )
                       'ORDER by project.Name desc, emails.Recipient desc';
               }
 
-              echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+              //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
 
             ?>
           </p>
 
           <p>
-            <b>Preparing</b>:
+            <!--b>Preparing</b>:-->
             <?php
               if ( !( $stmt = $mysqli->prepare( $sql ) ) )
               {
-                echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+                //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
                 return;
               }
               else
               {
-                echo '<span class="label label-success">Success</span>';
+                //echo '<span class="label label-success">Success</span>';
               }
             ?>
           </p>
@@ -199,16 +199,16 @@ if ( isset( $_GET[ PARAM ] ) )
             {
           ?>
             <p>
-              <b>Binding parameter</b>:
+              <!--<b>Binding parameter</b>:-->
               <?php
                 if ( !$stmt->bind_param( "s", $var1 ) )
                 {
-                  echo ( '<span class="label label-danger">binding error</span>' );
+                  //echo ( '<span class="label label-danger">binding error</span>' );
                   return;
                 }
                 else
                 {
-                  echo '<span class="label label-success">Success</span>';
+                  //echo '<span class="label label-success">Success</span>';
                 }
               ?>
             </p>
@@ -217,16 +217,16 @@ if ( isset( $_GET[ PARAM ] ) )
           ?>
 
           <p>
-            <b>Executing</b>:
+            <!--<b>Executing</b>:-->
             <?php
               if ( !$stmt->execute() )
               {
-                echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+                //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
                 return;
               }
               else
               {
-                echo '<span class="label label-success">Success</span>';
+                //echo '<span class="label label-success">Success</span>';
               }
             ?>
           </p>
@@ -234,7 +234,7 @@ if ( isset( $_GET[ PARAM ] ) )
           <hr />
 
           <p>
-            <h1 style="text-align:left">Emails</h1>
+            <!--<h1 style="text-align:left">Emails</h1>-->
             <ul class="list-group">
             <?php
 
@@ -247,6 +247,7 @@ if ( isset( $_GET[ PARAM ] ) )
               while ( $stmt->fetch() )
               {
                 echo '<address>';
+                echo ('<h2>Emails: </h2>');
                  echo ('<strong> Project: ' . htmlentities($project_name) . '</strong><br>');
                  echo ('From: ' . htmlentities($from) . '<br>');
                  echo ('To: ' . htmlentities($to) . '<br><br>');
@@ -263,9 +264,9 @@ if ( isset( $_GET[ PARAM ] ) )
           <hr />
 
           <p>
-            <b>DB Disconnection</b>:
+            <!--<b>DB Disconnection</b>:-->
             <?php
-              echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
+              //echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
             ?>
           </p>
 

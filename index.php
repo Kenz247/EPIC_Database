@@ -61,6 +61,7 @@
 				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 				    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
 				    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="3"></li>
 				  </ol>
 
 				  <!-- Wrapper for slides -->
@@ -78,6 +79,11 @@
 						<div class="item">
 							<a href="project.php?stuff=1">
 								<img src="oscar.jpg" alt="Oscar the Talking Trash Can">
+							</a>
+						</div>
+						<div class="item">
+							<a href="project.php?stuff=1">
+								<img src="chuck.jpg" alt="Chuck the Cornhole">
 							</a>
 						</div>
 				  </div>

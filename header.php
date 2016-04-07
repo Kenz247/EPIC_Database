@@ -93,7 +93,7 @@
           echo('class="active"');
         }
         ?>
-        ><a href="complexquery1.php">Departments</a></li>
+        ><a href="complexquery1.php">Query1</a></li>
         <li
         <?php if($foo == 6){
           echo('class="active"');

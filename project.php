@@ -6,10 +6,10 @@
 		<div class="container" style="padding: 40px 15px">
 
 			<div class="page-header">
-				<h1>Project</h1>
+				<h1>Current Projects</h1>
 			</div>
       <p>
-        <b>DB Connection</b>:
+        <!--<b>DB Connection</b>:-->
         <?php
 
           error_reporting( E_STRICT );
@@ -17,10 +17,10 @@
 
           try {
             $mysqli = new mysqli( DB_SERVER, DB_USER, DB_PW, DB_NAME );
-            echo ( '<span class="label label-success">Success</span>' );
+            //echo ( '<span class="label label-success">Success</span>' );
             $connected = true;
           } catch (Exception $e) {
-            echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
+            //echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
             $connected = false;
           }
         ?>
@@ -31,13 +31,13 @@
         {
       ?>
           <p>
-            <b>Character Set UTF-8</b>:
+            <!--<b>Character Set UTF-8</b>:-->
             <?php
               if (!$mysqli->set_charset('utf8')) {
-                echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+                //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
                 $connected = false;
               } else {
-                echo ( '<span class="label label-success">Success</span>' );
+                //echo ( '<span class="label label-success">Success</span>' );
               }
             ?>
           </p>
@@ -51,7 +51,7 @@
       ?>
 
       <p>
-        <b>SQL to Prepare</b>:
+        <!--<b>SQL to Prepare</b>:-->
         <?php
 
           $sql = null;
@@ -59,22 +59,22 @@
             'From project ' .
             'order by project.name asc;';
 
-          echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+          //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
 
         ?>
       </p>
 
       <p>
-        <b>Preparing</b>:
+        <!--<b>Preparing</b>:-->
         <?php
           if ( !( $stmt = $mysqli->prepare( $sql ) ) )
           {
-            echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+            //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
             return;
           }
           else
           {
-            echo '<span class="label label-success">Success</span>';
+            //echo '<span class="label label-success">Success</span>';
           }
         ?>
       </p>
@@ -82,16 +82,16 @@
 
 
       <p>
-        <b>Executing</b>:
+        <!--<b>Executing</b>:-->
         <?php
           if ( !$stmt->execute() )
           {
-            echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+            //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
             return;
           }
           else
           {
-            echo '<span class="label label-success">Success</span>';
+            //echo '<span class="label label-success">Success</span>';
           }
         ?>
       </p>
@@ -99,10 +99,10 @@
       <hr />
 
       <p>
-        <h1>Results</h1>
+        <h3>Please select a project:</h3>
 				<div class="container" align="center">
 					<form>
-						<select name="stuff" class="form-control" style="width:200px">
+						<select name="stuff" class="form-control" style="width:220px">
         <?php
 
           $project_name = null;
@@ -129,9 +129,9 @@
       <hr />
 
 			<p>
-				<b>DB Disconnection</b>:
+				<!--<b>DB Disconnection</b>:-->
 				<?php
-					echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
+					//echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
 				?>
 			</p>
 
@@ -140,7 +140,7 @@
 		?>
 		<hr />
 
-			<b>DB Connection</b>:
+			<!--<b>DB Connection</b>:-->
 			<?php
 
 				error_reporting( E_STRICT );
@@ -148,10 +148,10 @@
 
 				try {
 					$mysqli = new mysqli( DB_SERVER, DB_USER, DB_PW, DB_NAME );
-					echo ( '<span class="label label-success">Success</span>' );
+					//echo ( '<span class="label label-success">Success</span>' );
 					$connected = true;
 				} catch (Exception $e) {
-					echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
+					//echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
 					$connected = false;
 				}
 			?>
@@ -162,13 +162,13 @@
 			{
 		?>
 				<p>
-					<b>Character Set UTF-8</b>:
+					<!--<b>Character Set UTF-8</b>:-->
 					<?php
 						if (!$mysqli->set_charset('utf8')) {
-							echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+							//echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
 							$connected = false;
 						} else {
-							echo ( '<span class="label label-success">Success</span>' );
+							//echo ( '<span class="label label-success">Success</span>' );
 						}
 					?>
 				</p>
@@ -184,34 +184,35 @@
 			<hr />
 
 			<p>
-				<b>SQL to Prepare</b>:
+				<!--<b>SQL to Prepare</b>:-->
 				<?php
 
 					$sql = null;
 					if ( !is_null( $param ))
 					{
 						$sql = 'SELECT project.Name as Project_Name, project.ProjectStatus as Project_Status, ' .
+						'project.About as about_project, '.
 						'project.StartDate as Start_Date, project.EndDate as EndDate, project.Budget as Budget, ' .
 						'concat(faculty.LastName, ", ", faculty.FirstName) as Project_Leader ' .
 						'from project inner join faculty on project.LeaderId = faculty.ID where project.id = ? ';
 					}
 
-					echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+					//echo ( '<code>' . htmlentities( $sql ) . '</code>' );
 
 				?>
 			</p>
 
 			<p>
-				<b>Preparing</b>:
+				<!--<b>Preparing</b>:-->
 				<?php
 					if ( !( $stmt = $mysqli->prepare( $sql ) ) )
 					{
-						echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+						//echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
 						return;
 					}
 					else
 					{
-						echo '<span class="label label-success">Success</span>';
+						//echo '<span class="label label-success">Success</span>';
 					}
 				?>
 			</p>
@@ -221,16 +222,16 @@
 				{
 			?>
 				<p>
-					<b>Binding parameter</b>:
+					<!--<b>Binding parameter</b>:-->
 					<?php
 						if ( !$stmt->bind_param( "s", $param ) )
 						{
-							echo ( '<span class="label label-danger">binding error</span>' );
+							//echo ( '<span class="label label-danger">binding error</span>' );
 							return;
 						}
 						else
 						{
-							echo '<span class="label label-success">Success</span>';
+							//echo '<span class="label label-success">Success</span>';
 						}
 					?>
 				</p>
@@ -238,16 +239,16 @@
 				}
 			?>
 			<p>
-				<b>Executing</b>:
+				<!--<b>Executing</b>:-->
 				<?php
 					if ( !$stmt->execute() )
 					{
-						echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+						//echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
 						return;
 					}
 					else
 					{
-						echo '<span class="label label-success">Success</span>';
+						//echo '<span class="label label-success">Success</span>';
 					}
 				?>
 			</p>
@@ -255,22 +256,24 @@
 			<hr />
 
 			<p>
-				<h1 style="text-align:left">Results</h1>
+				<!--<h1 style="text-align:left">Results</h1>-->
 				<ul class="list-group">
 				<?php
 
 					$project_name = null;
+					$about_project = null;
 					$project_status = null;
 					$project_start = null;
 					$project_end = null;
 					$project_budget = null;
 					$project_leader = null;
-					$stmt->bind_result($project_name, $project_status, $project_start, $project_end, $project_budget, $project_leader);
+					$stmt->bind_result($project_name, $project_status, $about_project, $project_start, $project_end, $project_budget, $project_leader);
 
 					while ( $stmt->fetch() )
 					{
 						echo '<address>';
 						 echo ('<strong> Project: ' . htmlentities($project_name) . '</strong><br>');
+						 echo ('About: '. htmlentities($about_project) . '<br>');
 						 echo ('Status: ' . htmlentities($project_status) . '<br>');
 						 echo ('Start Date: ' . htmlentities($project_start) . '<br>');
 						 echo ('End Date: ' . htmlentities($project_end). '<br>');
@@ -291,9 +294,9 @@
 				<hr />
 
 				<p>
-					<b>DB Disconnection</b>:
+					<!--<b>DB Disconnection</b>:-->
 					<?php
-						echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
+						//echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
 					?>
 				</p>
 

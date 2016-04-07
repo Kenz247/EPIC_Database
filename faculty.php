@@ -14,7 +14,7 @@ if ( isset( $_GET[ PARAM ] ) )
  ?>
 
 	<body>
-		<div class="container" style="padding: 40px 15px" align="center">
+		<div class="container" style="padding: 40px 15px" align="left">
 
 			<div class="page-header" align="left">
 				<h1>Faculty</h1>
@@ -247,7 +247,7 @@ if ( isset( $_GET[ PARAM ] ) )
               while ( $stmt->fetch() )
               {
                 echo '<address>';
-                echo ('<h2>Emails: </h2>');
+                echo ('<h2>Emails</h2>');
                  echo ('<strong> Project: ' . htmlentities($project_name) . '</strong><br>');
                  echo ('From: ' . htmlentities($from) . '<br>');
                  echo ('To: ' . htmlentities($to) . '<br><br>');

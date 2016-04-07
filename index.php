@@ -68,32 +68,32 @@
 				  <div class="carousel-inner" role="listbox">
 				    <div class="item active">
 							<a href="project.php?stuff=2">
-				      	<img src="art.jpg" alt="Art">
-      					<div class="carousel-caption" style="color: black; font-size: 3em; text-align: left">
-        					<span class="label label-danger">Art</span>
+				      	<img src="binarytree.jpg" alt="Art">
+      					<div class="carousel-caption" style="color: black; font-size: 3em; text-align: left; bottom: 50px;">
+        					<span class="label label-danger">Recycled Techno-Art</span>
       					</div>
 							</a>
 				    </div>
 				    <div class="item">
 							<a href="project.php?stuff=3">
 				      	<img src="bike.jpg" alt="Electric Bike">
-								<div class="carousel-caption" style="color: black; font-size: 3em;  text-align: left">
-									<span class="label label-danger">Bike</span>
+								<div class="carousel-caption" style="color: black; font-size: 3em;  text-align: left; bottom: 50px;">
+									<span class="label label-danger">Electric Bike</span>
       					</div>
 							</a>
 				    </div>
 						<div class="item">
 							<a href="project.php?stuff=1">
 								<img src="oscar.jpg" alt="Oscar the Talking Trash Can">
-								<div class="carousel-caption" style="color: black; font-size: 3em;  text-align: left">
-									<span class="label label-danger">Trash</span>
+								<div class="carousel-caption" style="color: black; font-size: 3em;  text-align: left; bottom: 50px;">
+									<span class="label label-danger">Talking Trash Can</span>
       					</div>
 							</a>
 						</div>
 						<div class="item">
 							<a href="project.php?stuff=1">
 								<img src="chuck.jpg" alt="Chuck the Cornhole">
-								<div class="carousel-caption" style="color: black; font-size: 3em;  text-align: left">
+								<div class="carousel-caption" style="color: black; font-size: 3em;  text-align: left; bottom: 50px;">
 									<span class="label label-danger">Chuck the Cornhole Robot</span>
       					</div>
 							</a>

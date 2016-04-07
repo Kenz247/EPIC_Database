@@ -56,12 +56,11 @@
 <div id="leopard"><!--This begins the leopard div-->
 <h6><a href="http://email.wit.edu/landing/">Wentworth Email Login</a></h6>
 <h6><a href="http://lconnect.wit.edu/">LConnect Login</a></h6>
-<h6><a href="http://bb.wit.edu/">Blackboard Login</a></h6>
+<h6><a href="http://bb.wit.edu/">Blackboard Login</a></h6>  
 </div>
 <!--This ends the leopard div--></div>
 <!--This ends the footer5 div-->
-<div id="footer6"><!--This begins the footer6 div--><a href="http://www.wit.edu/news/2013/08/2013-08-07.html" title="Princeton Review"><img alt="Princeton Review 2012 Logo" height="75" src="http://www.wit.edu/images/logo-princetonreview-2012.png" width="75"/></a> <a href="http://www.wit.edu/news/2013/09/2013-09-10.html" title="US News and World Report Best Colleges"><img alt="US News Logo" height="76" src="http://www.wit.edu/images/logo-usnews.gif" width="62"/></a></div>
-<!--This begins the footer6 div--></div>
+
 <!--This ends the footercontent div--></div>
 <div id="outerfooter"><!--This begins the outerfooter div-->
 <p>&#169; Wentworth Institute of Technology &#160; | &#160; 550 Huntington Avenue &#160; | &#160; Boston, MA 02115 &#160; | &#160; 617-989-4590</p>

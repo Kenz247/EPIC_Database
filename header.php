@@ -30,7 +30,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EPIC</title>
+    <title><img alt="Wentworth Crest" height="109" src="http://www.wit.edu/images/crest.png" width="126"/></title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="57x57" href="./apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./apple-touch-icon-60x60.png">

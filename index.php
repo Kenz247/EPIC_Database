@@ -69,21 +69,33 @@
 				    <div class="item active">
 							<a href="project.php?stuff=2">
 				      	<img src="art.jpg" alt="Art">
+      					<div class="carousel-caption" style="color: black; font-size: 2em;">
+        					<mark><b>Art</b></mark>
+      					</div>
 							</a>
 				    </div>
 				    <div class="item">
 							<a href="project.php?stuff=3">
 				      	<img src="bike.jpg" alt="Electric Bike">
+								<div class="carousel-caption" style="color: black; font-size: 2em;">
+									Bike
+      					</div>
 							</a>
 				    </div>
 						<div class="item">
 							<a href="project.php?stuff=1">
 								<img src="oscar.jpg" alt="Oscar the Talking Trash Can">
+								<div class="carousel-caption" style="color: black; font-size: 2em;">
+									Trash
+      					</div>
 							</a>
 						</div>
 						<div class="item">
 							<a href="project.php?stuff=1">
 								<img src="chuck.jpg" alt="Chuck the Cornhole">
+								<div class="carousel-caption" style="color: black; font-size: 2em;">
+									Chuck
+      					</div>
 							</a>
 						</div>
 				  </div>

@@ -5,4 +5,3 @@ Checklist
 -Figure out how to connect project interest
 -Think of things
 -Keep stolen website
--Student Dropdown thing

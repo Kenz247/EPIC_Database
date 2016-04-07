@@ -102,6 +102,7 @@
 				<div class="container" align="center">
 					<form>
 						<select name="stuff" class="form-control" style="width:220px">
+							<option value=0>Projects</value>
         <?php
 
           $project_name = null;

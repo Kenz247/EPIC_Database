@@ -1,9 +1,11 @@
+<head>
 
+    <?php
+    $foo = 5;
+      include "header.php";
+    ?>
+  </head>
 <body>
-  <?php
-  $foo = 5;
-    include "header.php";
-  ?>
   <div class="container" style="padding: 40px 15px">
 
     <div class="page-header">
@@ -305,7 +307,7 @@
               <th>Quantity</th>
           </thead>
           <tbody>
-      <ul class="list-group">
+
       <?php
         $project_name = null;
         $materials_name = null;
@@ -324,7 +326,7 @@
 
         $stmt->close();
       ?>
-    </ul>
+    </table>
     </p>
 
     <p>
@@ -338,7 +340,8 @@
   <?php
     }
   ?>
+</div>
       <script src="js/jquery-1.12.0.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-	<?php include "stolenfooter.php" ?>
+      <?php include "stolenfooter.php" ?>
 </body>

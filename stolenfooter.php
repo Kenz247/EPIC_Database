@@ -79,14 +79,7 @@
 <p>&#169; Wentworth Institute of Technology &#160; | &#160; 550 Huntington Avenue &#160; | &#160; Boston, MA 02115 &#160; | &#160; 617-989-4590</p>
 </div>
 <div id="conversion"><!-- Carnegie Doubleclick Code for Wentworth Institute of Technology WIT-ALL-PX 1 List -->
-<script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 994404567;
-var google_conversion_label = "38OTCIH7twQQ19GV2gM";
-var google_custom_params = window.google_tag_params;
-var google_remarketing_only = true;
-/* ]]> */
-</script>
+
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>
 <noscript>

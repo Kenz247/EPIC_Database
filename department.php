@@ -202,7 +202,6 @@
 
 
     <p>
-      <ul class="list-group">
       <?php
         $department_name = null;
         $money_spent_per_department = null;
@@ -216,7 +215,6 @@
         }
         $stmt->close();
       ?>
-    </ul>
     </p>
 
     <?php

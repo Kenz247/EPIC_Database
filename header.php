@@ -73,62 +73,67 @@
         }
         ?>
         ><a href="index.php">Home</a></li>
+        
         <li
         <?php if($foo == 2){
           echo('class="active"');
         }
         ?>><a href="project.php">Projects</a></li>
+
         <li
         <?php if($foo == 3){
           echo('class="active"');
         }
         ?>><a href="faculty.php">Faculty</a></li>
+
         <li
         <?php if($foo == 4){
           echo('class="active"');
         }
         ?>><a href="student.php">Students</a></li>
+
         <li
         <?php if($foo == 5){
           echo('class="active"');
         }
         ?>
         ><a href="department.php">Departments</a></li>
+
         <li
         <?php if($foo == 6){
           echo('class="active"');
         }
         ?>
         ><a href="complexquery2.php">Query2</a></li>
+
         <li
         <?php if($foo == 7){
           echo('class="active"');
         }
         ?>
         ><a href="complexquery3.php">Query3</a></li>
+
         <li
         <?php if($foo == 8){
           echo('class="active"');
         }
         ?>
         ><a href="complexquery4.php">Query4</a></li>
+
         <li
         <?php if($foo == 9){
           echo('class="active"');
         }
         ?>
         ><a href="contact.php">Contact</a></li>
+
         <li
         <?php if($foo == 10){
           echo('class="active"');
         }
         ?>
-        ><a href="contact.php">Get Involved</a></li>
-        <li
-        <?php if($foo == 11){
-          echo('class="active"');
-        }
-        ?>
+        ><a href="interest.php">Get Involved</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>

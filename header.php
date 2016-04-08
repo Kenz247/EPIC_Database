@@ -123,6 +123,12 @@
           echo('class="active"');
         }
         ?>
+        ><a href="contact.php">Get Involved</a></li>
+        <li
+        <?php if($foo == 11){
+          echo('class="active"');
+        }
+        ?>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

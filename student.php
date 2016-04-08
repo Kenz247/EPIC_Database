@@ -310,3 +310,4 @@
   <?php
     }
   ?>
+	<?php include "stolenfooter.php" ?>

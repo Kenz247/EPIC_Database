@@ -19,7 +19,7 @@ if ( isset( $_GET[ PARAM ] ) )
 			<div class="page-header" align="left">
 				<h1>Faculty</h1>
 			</div>
-      
+
 			<p>
 				<!--<b>DB Connection</b>:-->
 				<?php
@@ -275,4 +275,5 @@ if ( isset( $_GET[ PARAM ] ) )
 
 	<script src="js/jquery-1.12.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<?php include "stolenfooter.php" ?>
 	</body>

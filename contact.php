@@ -26,4 +26,5 @@
 <!--This ends the main div-->
 
 
+<?php include "stolenfooter.php" ?>
 </body>

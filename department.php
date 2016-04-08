@@ -233,10 +233,10 @@
         if ( !is_null( $param ))
         {
           $sql = 'SELECT project.name, materials.name, round(materials.unitprice, 2), materials.quantity ' .
-                  'FROM department LEFT JOIN faculty ON department.ID = faculty.DeptId ' .
-                  'LEFT JOIN faculty_works_on ON faculty.ID =faculty_works_on.FacultyId ' .
-                  'LEFT JOIN project ON faculty_works_on.ProjectId = project.ID ' .
-                  'LEFT JOIN materials ON project.ID = materials.ProjectId ' .
+                  'FROM department INNER JOIN faculty ON department.ID = faculty.DeptId ' .
+                  'INNER JOIN faculty_works_on ON faculty.ID =faculty_works_on.FacultyId ' .
+                  'INNER JOIN project ON faculty_works_on.ProjectId = project.ID ' .
+                  'INNER JOIN materials ON project.ID = materials.ProjectId ' .
                   'WHERE department.id = ? ';
         }
         //echo ( '<code>' . htmlentities( $sql ) . '</code>' );

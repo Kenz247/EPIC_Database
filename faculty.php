@@ -19,8 +19,7 @@ if ( isset( $_GET[ PARAM ] ) )
 			<div class="page-header" align="left">
 				<h1>Faculty</h1>
 			</div>
-
-
+      
 			<p>
 				<!--<b>DB Connection</b>:-->
 				<?php
@@ -62,8 +61,6 @@ if ( isset( $_GET[ PARAM ] ) )
 				if ( $connected )
 				{
 			?>
-
-				<hr />
 
 				<p>
 					<!--<b>SQL to Prepare</b>:-->
@@ -111,8 +108,6 @@ if ( isset( $_GET[ PARAM ] ) )
 					?>
 				</p>
 
-				<hr />
-
         <p>
         <h1>Who is working on projects? <small>(Some people might not have sent emails)</small></h1>
           <table class="table table-bordered">
@@ -150,7 +145,7 @@ if ( isset( $_GET[ PARAM ] ) )
         </table>
     </p>
 
-				<hr />
+
         <?php
           if ( $connected )
           {
@@ -231,7 +226,6 @@ if ( isset( $_GET[ PARAM ] ) )
             ?>
           </p>
 
-          <hr />
 
           <p>
             <!--<h1 style="text-align:left">Emails</h1>-->
@@ -261,7 +255,6 @@ if ( isset( $_GET[ PARAM ] ) )
           </ul>
           </p>
 
-          <hr />
 
           <p>
             <!--<b>DB Disconnection</b>:-->

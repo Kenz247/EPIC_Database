@@ -126,7 +126,6 @@
 				</form>
 			</div>
       </p>
-      <hr />
 
 			<p>
 				<!--<b>DB Disconnection</b>:-->
@@ -191,7 +190,7 @@
 						$sql = 'SELECT project.Name as Project_Name, project.ProjectStatus as Project_Status, ' .
 						'project.About as about_project, faculty.email as pl_email, '.
 						'project.StartDate as Start_Date, project.EndDate as EndDate, project.Budget as Budget, ' .
-						'concat(faculty.LastName, ", ", faculty.FirstName) as Project_Leader ' .
+						'concat(faculty.FirstName," ", faculty.LastName) as Project_Leader ' .
 						'from project inner join faculty on project.LeaderId = faculty.ID where project.id = ? ';
 					}
 
@@ -286,11 +285,6 @@
 				?>
 			</ul>
 			</p>
-
-			<hr />
-			<hr />
-
-				<hr />
 
 				<p>
 					<!--<b>DB Disconnection</b>:-->

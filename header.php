@@ -93,7 +93,7 @@
           echo('class="active"');
         }
         ?>
-        ><a href="complexquery1.php">Query1</a></li>
+        ><a href="complexquery1.php">Departments</a></li>
         <li
         <?php if($foo == 6){
           echo('class="active"');
@@ -117,7 +117,12 @@
           echo('class="active"');
         }
         ?>
-        ><a href="stolenwebsite.php">EPIC</a></li>
+        ><a href="contact.php">Contact</a></li>
+        <li
+        <?php if($foo == 10){
+          echo('class="active"');
+        }
+        ?>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

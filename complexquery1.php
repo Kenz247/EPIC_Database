@@ -1,3 +1,4 @@
+
 <body>
   <?php
   $foo = 5;
@@ -6,20 +7,19 @@
   <div class="container" style="padding: 40px 15px">
 
     <div class="page-header">
-      <h1>Other Stuffs aka Complex Queries!!</h1>
-      <h3>Show how much money each department is spending on projects.</h3>
+      <h1>Departments</h1>
     </div>
     <p>
-      <b>DB Connection</b>:
+      <!--<b>DB Connection</b>:-->
       <?php
         error_reporting( E_STRICT );
         mysqli_report( MYSQLI_REPORT_STRICT );
         try {
           $mysqli = new mysqli( DB_SERVER, DB_USER, DB_PW, DB_NAME );
-          echo ( '<span class="label label-success">Success</span>' );
+          //echo ( '<span class="label label-success">Success</span>' );
           $connected = true;
         } catch (Exception $e) {
-          echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
           $connected = false;
         }
       ?>
@@ -30,13 +30,13 @@
       {
     ?>
         <p>
-          <b>Character Set UTF-8</b>:
+          <!--<b>Character Set UTF-8</b>:-->
           <?php
             if (!$mysqli->set_charset('utf8')) {
-              echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+              //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
               $connected = false;
             } else {
-              echo ( '<span class="label label-success">Success</span>' );
+              //echo ( '<span class="label label-success">Success</span>' );
             }
           ?>
         </p>
@@ -50,27 +50,27 @@
     ?>
 
     <p>
-      <b>SQL to Prepare</b>:
+      <!--<b>SQL to Prepare</b>:-->
       <?php
         $sql = null;
           $sql = 'SELECT department.id as Department_Id, department.Name as Department_Name ' .
                   'FROM department ' .
                   'ORDER BY department.name asc;';
-        echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+        //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
       ?>
     </p>
 
     <p>
-      <b>Preparing</b>:
+      <!--<b>Preparing</b>:-->
       <?php
         if ( !( $stmt = $mysqli->prepare( $sql ) ) )
         {
-          echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
           return;
         }
         else
         {
-          echo '<span class="label label-success">Success</span>';
+          //echo '<span class="label label-success">Success</span>';
         }
       ?>
     </p>
@@ -78,24 +78,23 @@
 
 
     <p>
-      <b>Executing</b>:
+      <!--<b>Executing</b>:-->
       <?php
         if ( !$stmt->execute() )
         {
-          echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
           return;
         }
         else
         {
-          echo '<span class="label label-success">Success</span>';
+          //echo '<span class="label label-success">Success</span>';
         }
       ?>
     </p>
 
-    <hr />
 
     <p>
-      <h3>Money being spent by each department</h3>
+      <h3>Money Spent by Department</h3>
       <div class="container" align="center">
         <form>
           <select name="stuff" class="form-control" style="width:200px">
@@ -118,22 +117,20 @@
       </form>
     </div>
     </p>
-    <hr />
+
 
   <?php
     }
   ?>
-  <hr />
+
 
   <?php
     if ( $connected )
     {
   ?>
 
-    <hr />
-
     <p>
-      <b>SQL to Prepare</b>:
+      <!--<b>SQL to Prepare</b>:-->
       <?php
         $sql = null;
         if ( !is_null( $param ))
@@ -145,21 +142,21 @@
                   'LEFT JOIN materials ON project.ID = materials.ProjectId ' .
                   'WHERE department.id = ? ';
         }
-        echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+        //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
       ?>
     </p>
 
     <p>
-      <b>Preparing</b>:
+      <!--<b>Preparing</b>:-->
       <?php
         if ( !( $stmt = $mysqli->prepare( $sql ) ) )
         {
-          echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
           return;
         }
         else
         {
-          echo '<span class="label label-success">Success</span>';
+          //echo '<span class="label label-success">Success</span>';
         }
       ?>
     </p>
@@ -169,41 +166,40 @@
       {
     ?>
       <p>
-        <b>Binding parameter</b>:
+        <!--<b>Binding parameter</b>:-->
         <?php
           if ( !$stmt->bind_param( "s", $param ) )
           {
-            echo ( '<span class="label label-danger">binding error</span>' );
+            //echo ( '<span class="label label-danger">binding error</span>' );
             return;
           }
           else
           {
-            echo '<span class="label label-success">Success</span>';
+            //echo '<span class="label label-success">Success</span>';
           }
         ?>
       </p>
     <?php
       }
     ?>
+
     <p>
-      <b>Executing</b>:
+      <!--<b>Executing</b>:-->
       <?php
         if ( !$stmt->execute() )
         {
-          echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
           return;
         }
         else
         {
-          echo '<span class="label label-success">Success</span>';
+          //echo '<span class="label label-success">Success</span>';
         }
       ?>
     </p>
 
-    <hr />
 
     <p>
-      <h1 style="text-align:left"><small>Results</small></h1>
       <ul class="list-group">
       <?php
         $department_name = null;
@@ -212,8 +208,8 @@
         while ( $stmt->fetch() )
         {
           echo '<address>';
-           echo ('<strong> Deparment Name: ' . htmlentities($department_name) . '</strong><br>');
-           echo('Amount Spent: $' . htmlentities($money_spent_per_department) . '<br>');
+           echo ('<h3><strong> Deparment Name: ' . htmlentities($department_name) . '</strong></h3>');
+           echo('<h4>Amount Spent: $' . htmlentities($money_spent_per_department) . '</h4>');
           echo '</address>';
         }
         $stmt->close();
@@ -225,13 +221,120 @@
       }
     ?>
 
-        <hr />
+    <?php
+      if ( $connected )
+      {
+    ?>
 
-        <p>
-          <b>DB Disconnection</b>:
-          <?php
-            echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
-          ?>
-        </p>
+    <p>
+      <!--<b>SQL to Prepare</b>:-->
+      <?php
+        $sql = null;
+        if ( !is_null( $param ))
+        {
+          $sql = 'SELECT project.name, materials.name, round(materials.unitprice, 2), materials.quantity ' .
+                  'FROM department LEFT JOIN faculty ON department.ID = faculty.DeptId ' .
+                  'LEFT JOIN faculty_works_on ON faculty.ID =faculty_works_on.FacultyId ' .
+                  'LEFT JOIN project ON faculty_works_on.ProjectId = project.ID ' .
+                  'LEFT JOIN materials ON project.ID = materials.ProjectId ' .
+                  'WHERE department.id = ? ';
+        }
+        //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+      ?>
+    </p>
 
-    </div>
+    <p>
+      <!--<b>Preparing</b>:-->
+      <?php
+        if ( !( $stmt = $mysqli->prepare( $sql ) ) )
+        {
+          //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+          return;
+        }
+        else
+        {
+          //echo '<span class="label label-success">Success</span>';
+        }
+      ?>
+    </p>
+
+    <?php
+      if ( !is_null( $param ) )
+      {
+    ?>
+      <p>
+        <!--<b>Binding parameter</b>:-->
+        <?php
+          if ( !$stmt->bind_param( "s", $param ) )
+          {
+            //echo ( '<span class="label label-danger">binding error</span>' );
+            return;
+          }
+          else
+          {
+            //echo '<span class="label label-success">Success</span>';
+          }
+        ?>
+      </p>
+    <?php
+      }
+    ?>
+
+    <p>
+      <!--<b>Executing</b>:-->
+      <?php
+        if ( !$stmt->execute() )
+        {
+          //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+          return;
+        }
+        else
+        {
+          //echo '<span class="label label-success">Success</span>';
+        }
+      ?>
+    </p>
+
+    <p>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Material</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+          </thead>
+          <tbody>
+      <ul class="list-group">
+      <?php
+        $project_name = null;
+        $materials_name = null;
+        $unit_price = null;
+        $quantity = null;
+        $stmt->bind_result($project_name, $materials_name, $unit_price, $quantity);
+        while ( $stmt->fetch() )
+        {
+              echo ('<tr>');
+              echo ('<td>' . htmlentities($project_name) . '</td>');
+              echo ('<td>' . htmlentities($materials_name) . '</td>');
+              echo ('<td> $' . htmlentities($unit_price) . '</td>');
+              echo ('<td>' . htmlentities($quantity) . '</td>');
+              echo ('</tr>');
+        }
+
+        $stmt->close();
+      ?>
+    </ul>
+    </p>
+
+    <p>
+      <!--<b>DB Disconnection</b>:-->
+      <?php
+        //echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
+      ?>
+    </p>
+  </div>
+
+  <?php
+    }
+  ?>

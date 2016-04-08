@@ -137,11 +137,9 @@
   <?php
     }
   ?>
-    <div class="page-header">
-      <h1>Students</h1>
-    </div>
+
     <p>
-      <b>DB Connection</b>:
+      <!--<b>DB Connection</b>:-->
       <?php
 
         error_reporting( E_STRICT );
@@ -149,10 +147,10 @@
 
         try {
           $mysqli = new mysqli( DB_SERVER, DB_USER, DB_PW, DB_NAME );
-          echo ( '<span class="label label-success">Success</span>' );
+          //echo ( '<span class="label label-success">Success</span>' );
           $connected = true;
         } catch (Exception $e) {
-          echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
           $connected = false;
         }
       ?>
@@ -163,13 +161,13 @@
       {
     ?>
         <p>
-          <b>Character Set UTF-8</b>:
+          <!--<b>Character Set UTF-8</b>:-->
           <?php
             if (!$mysqli->set_charset('utf8')) {
-              echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+              //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
               $connected = false;
             } else {
-              echo ( '<span class="label label-success">Success</span>' );
+              //echo ( '<span class="label label-success">Success</span>' );
             }
           ?>
         </p>
@@ -183,7 +181,7 @@
     ?>
 
     <p>
-      <b>SQL to Prepare</b>:
+      <!--<b>SQL to Prepare</b>:-->
       <?php
 
         $sql = null;
@@ -200,22 +198,22 @@
                 'inner join Project on Project.ID = Student_Works_on.ProjectId ' .
                 'where Project.ID = ?';
           }
-        echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+        //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
 
       ?>
     </p>
 
     <p>
-      <b>Preparing</b>:
+      <!--<b>Preparing</b>:-->
       <?php
         if ( !( $stmt = $mysqli->prepare( $sql ) ) )
         {
-          echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
           return;
         }
         else
         {
-          echo '<span class="label label-success">Success</span>';
+          //echo '<span class="label label-success">Success</span>';
         }
       ?>
     </p>
@@ -243,16 +241,16 @@
     ?>
 
     <p>
-      <b>Executing</b>:
+      <!--<b>Executing</b>:-->
       <?php
         if ( !$stmt->execute() )
         {
-          echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
           return;
         }
         else
         {
-          echo '<span class="label label-success">Success</span>';
+          //echo '<span class="label label-success">Success</span>';
         }
       ?>
     </p>
@@ -260,7 +258,7 @@
     <hr />
 
     <p>
-      <h1>Student</h1>
+      <h1>Students Working on Projects</h1>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -300,12 +298,11 @@
         </tbody>
       </table>
     </p>
-    <hr />
 
     <p>
-      <b>DB Disconnection</b>:
+      <!--<b>DB Disconnection</b>:-->
       <?php
-        echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
+        //echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
       ?>
     </p>
   </div>

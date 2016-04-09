@@ -72,7 +72,7 @@
 							<a href="project.php?stuff=2">
 				      	<img src="binarytree.jpg" alt="Art">
       					<div class="carousel-caption" style="color: black; font-size: 3em; text-align: left; bottom: 50px;">
-        					<span class="label label-danger">Recycled Techno-Art</span>
+        					<span class="label label-danger">Technology Art</span>
       					</div>
 							</a>
 				    </div>

@@ -108,7 +108,14 @@
         $stmt->close();
       ?>
 
-    <!--<input type="checkbox" name="options[]" value="" />Acorn Building<br />-->
+    <br />
+    <h4>Show similarities with</h4>
+    <input type="radio" name="filter" value="1" />Projects<br />
+    <input type="radio" name="filter" value="2" />Students<br />
+    <input type="radio" name="filter" value="3" />Faculty<br />
+    <input type="radio" name="filter" value="4" />Students and Faculty<br />
+
+
 
   <br/>
     <input type="submit" name="formSubmit" value="Submit"   />
@@ -116,10 +123,19 @@
     </form>
         <?php
         $interest_list = isset($_POST['options']) ? $_POST['options'] : '';
+        $filter = isset($_POST['filter']) ? $_POST['filter'] : '';
         $interest_where = 'Interests.InterestID = ';
+        $param = null;
+    if(empty($filter)){
+      echo("You need to select which similarities you would like to show. <br />");
+    }
+    else{
+      $param = $filter;
+      
+    }
     if(empty($interest_list))
     {
-      echo("You didn't select any interests.");
+      echo("You didn't select any interests. <br />");
     }
     else
     {
@@ -146,26 +162,51 @@
   if ( $connected )
   {
 ?>
-
-
   <p>
     <!--<b>SQL to Prepare</b>:-->
     <?php
-
-      $sql = null;
-      $sql = 'SELECT Project.ID, Project.Name, Student.FirstName, Student.LastName, Student.Email ' .
-'from Student inner join student_works_on on student.ID = student_works_on.StudentId ' .
-'inner join project on student_works_on.ProjectId = project.ID ' .
-'inner join studentinterests on student.ID = studentinterests.StudentId ' .
-'inner join interests on studentinterests.InterestId = interests.InterestID ' .
-'where ' . htmlentities($interest_where) . ' ' .
-'UNION ' .
-'SELECT Project.ID, Project.Name, faculty.FirstName, faculty.LastName, faculty.Email ' .
-'from faculty inner join faculty_works_on on faculty.ID = faculty_works_on.FacultyId ' .
-'inner join project on faculty_works_on.ProjectId = project.ID ' .
-'inner join facultyinterests on faculty.ID = facultyinterests.FacultyId ' .
-'inner join interests on facultyinterests.InterestId = interests.InterestID ' .
+    $sql = null;
+    if(!is_null($param)){
+      switch($param){
+        case "1": $sql = 'SELECT project.ID, project.Name, project.projectstatus, concat(faculty.FirstName, " ", faculty.LastName) as project_leader ' .
+'from project inner join projectinterests on project.ID = projectinterests.ProjectId ' .
+'inner join interests on projectinterests.InterestId = interests.InterestID ' .
+'inner join faculty on project.LeaderId = faculty.id ' .
 'where ' . htmlentities($interest_where) . ';';
+        break;
+        case "2": $sql = 'SELECT Project.ID, Project.Name, Student.FirstName, Student.LastName, Student.Email ' .
+  'from Student inner join student_works_on on student.ID = student_works_on.StudentId ' .
+  'inner join project on student_works_on.ProjectId = project.ID ' .
+  'inner join studentinterests on student.ID = studentinterests.StudentId ' .
+  'inner join interests on studentinterests.InterestId = interests.InterestID ' .
+  'where ' . htmlentities($interest_where) . ';';
+        break;
+        case "3": $sql = 'SELECT Project.ID, Project.Name, faculty.FirstName, faculty.LastName, faculty.Email ' .
+        'from faculty inner join faculty_works_on on faculty.ID = faculty_works_on.FacultyId ' .
+        'inner join project on faculty_works_on.ProjectId = project.ID ' .
+        'inner join facultyinterests on faculty.ID = facultyinterests.FacultyId ' .
+        'inner join interests on facultyinterests.InterestId = interests.InterestID ' .
+        'where ' . htmlentities($interest_where) . ';';
+        break;
+        case "4": $sql = 'SELECT Project.ID, Project.Name, Student.FirstName, Student.LastName, Student.Email ' .
+  'from Student inner join student_works_on on student.ID = student_works_on.StudentId ' .
+  'inner join project on student_works_on.ProjectId = project.ID ' .
+  'inner join studentinterests on student.ID = studentinterests.StudentId ' .
+  'inner join interests on studentinterests.InterestId = interests.InterestID ' .
+  'where ' . htmlentities($interest_where) . ' ' .
+  'UNION ' .
+  'SELECT Project.ID, Project.Name, faculty.FirstName, faculty.LastName, faculty.Email ' .
+  'from faculty inner join faculty_works_on on faculty.ID = faculty_works_on.FacultyId ' .
+  'inner join project on faculty_works_on.ProjectId = project.ID ' .
+  'inner join facultyinterests on faculty.ID = facultyinterests.FacultyId ' .
+  'inner join interests on facultyinterests.InterestId = interests.InterestID ' .
+  'where ' . htmlentities($interest_where) . ';';
+        break;
+        default: $sql = null;
+        break;
+      }
+    }
+
 
       //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
 
@@ -193,12 +234,12 @@
     <?php
       if ( !$stmt->execute() )
       {
-        //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+        echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
         return;
       }
       else
       {
-        //echo '<span class="label label-success">Success</span>';
+        echo '<span class="label label-success">Success</span>';
       }
     ?>
   </p>
@@ -210,13 +251,43 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
+          <?php
+          if($param != 1){
+            echo('<th>First Name</th>');
+            echo('<th>Last Name</th>');
+            echo('<th>Email</th>');
+          }
+          ?>
           <th>Project Name</th>
+          <?php
+          if($param == 1){
+              echo('<th>Project Status</th>');
+              echo('<th>Project Leader</th>');
+          }
+          ?>
       </thead>
       <tbody>
     <?php
+    if($param == 1){
+      $inc = 1;
+      $project_name = null;
+      $project_id = null;
+      $project_status = null;
+      $leader_name = null;
+      $stmt->bind_result($project_id, $project_name, $project_status, $leader_name);
+
+      while ( $stmt->fetch() )
+      {
+        echo ('<tr>');
+        echo ('<th scope="row">' . htmlentities($inc) . '</th>');
+        echo ('<td><a href="project.php?stuff=' . htmlentities($project_id) . '">' . htmlentities($project_name).'</a></td>');
+        echo('<td>' . htmlentities($project_status).'</a></td>');
+        echo ('<td>' . htmlentities($leader_name) . '</td>');
+        echo ('</tr>');
+        $inc = $inc + 1;
+      }
+    }
+    else{
       $inc = 1;
       $project_name = null;
       $first_name = null;
@@ -236,6 +307,7 @@
         echo ('</tr>');
         $inc = $inc + 1;
       }
+    }
 
       $stmt->close();
 

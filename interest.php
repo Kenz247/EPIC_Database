@@ -131,7 +131,7 @@
     }
     else{
       $param = $filter;
-      
+
     }
     if(empty($interest_list))
     {
@@ -234,12 +234,12 @@
     <?php
       if ( !$stmt->execute() )
       {
-        echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+        //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
         return;
       }
       else
       {
-        echo '<span class="label label-success">Success</span>';
+        //echo '<span class="label label-success">Success</span>';
       }
     ?>
   </p>

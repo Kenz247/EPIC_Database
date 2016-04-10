@@ -153,14 +153,14 @@
     <?php
 
       $sql = null;
-      $sql = 'SELECT Project.Name, Student.FirstName, Student.LastName, Student.Email ' .
+      $sql = 'SELECT Project.ID, Project.Name, Student.FirstName, Student.LastName, Student.Email ' .
 'from Student inner join student_works_on on student.ID = student_works_on.StudentId ' .
 'inner join project on student_works_on.ProjectId = project.ID ' .
 'inner join studentinterests on student.ID = studentinterests.StudentId ' .
 'inner join interests on studentinterests.InterestId = interests.InterestID ' .
 'where ' . htmlentities($interest_where) . ' ' .
 'UNION ' .
-'SELECT Project.Name, faculty.FirstName, faculty.LastName, faculty.Email ' .
+'SELECT Project.ID, Project.Name, faculty.FirstName, faculty.LastName, faculty.Email ' .
 'from faculty inner join faculty_works_on on faculty.ID = faculty_works_on.FacultyId ' .
 'inner join project on faculty_works_on.ProjectId = project.ID ' .
 'inner join facultyinterests on faculty.ID = facultyinterests.FacultyId ' .
@@ -222,7 +222,8 @@
       $first_name = null;
       $last_name = null;
       $email = null;
-      $stmt->bind_result($project_name, $first_name, $last_name, $email);
+      $project_id = null;
+      $stmt->bind_result($project_id, $project_name, $first_name, $last_name, $email);
 
       while ( $stmt->fetch() )
       {
@@ -231,7 +232,7 @@
         echo ('<td>' . htmlentities($first_name) . '</td>');
         echo('<td>' . htmlentities($last_name).'</a></td>');
         echo ('<td>' . htmlentities($email) . '</td>');
-        echo ('<td>' . htmlentities($project_name) . '</td>');
+        echo ('<td><a href="project.php?stuff=' . htmlentities($project_id) . '">' . htmlentities($project_name).'</a></td>');
         echo ('</tr>');
         $inc = $inc + 1;
       }

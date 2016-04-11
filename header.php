@@ -73,7 +73,7 @@
         }
         ?>
         ><a href="index.php">Home</a></li>
-        
+
         <li
         <?php if($foo == 2){
           echo('class="active"');
@@ -104,35 +104,36 @@
           echo('class="active"');
         }
         ?>
-        ><a href="complexquery2.php">Query2</a></li>
+        ><a href="contact.php">Contact</a></li>
 
         <li
         <?php if($foo == 7){
           echo('class="active"');
         }
         ?>
-        ><a href="complexquery3.php">Query3</a></li>
+        ><a href="interest.php">Get Involved</a></li>
 
         <li
         <?php if($foo == 8){
           echo('class="active"');
         }
         ?>
-        ><a href="complexquery4.php">Query4</a></li>
+        ><a href="complexquery2.php">Query3</a></li>
 
         <li
         <?php if($foo == 9){
           echo('class="active"');
         }
         ?>
-        ><a href="contact.php">Contact</a></li>
+        ><a href="complexquery3.php">Query4</a></li>
 
         <li
         <?php if($foo == 10){
           echo('class="active"');
         }
         ?>
-        ><a href="interest.php">Get Involved</a></li>
+        ><a href="complexquery4.php">Query5</a></li>
+
 
       </ul>
     </div><!--/.nav-collapse -->

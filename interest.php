@@ -1,6 +1,6 @@
 <head>
   <?php
-  $foo = 10;
+  $foo = 7;
     include "header.php";
   ?>
 </head>

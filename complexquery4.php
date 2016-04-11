@@ -1,6 +1,6 @@
 <body>
   <?php
-  $foo = 8;
+  $foo = 10;
     include "header.php";
   ?>
   <div class="container" style="padding: 40px 15px">

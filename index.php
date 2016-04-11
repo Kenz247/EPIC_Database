@@ -1,8 +1,11 @@
+<head>
+  <?php
+  $foo = 1;
+    include "header.php";
+  ?>
+</head>
+
 	<body>
-		<?php
-			$foo = 1;
-			include "header.php";
-		?>
 
 		<div class="container" style="padding: 40px 15px" align="center">
 

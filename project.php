@@ -1,8 +1,9 @@
+<head>
+	<?php
+	$foo = 2;
+	include "header.php";
+	 ?>
 	<body>
-		<?php
-		$foo = 2;
-			include "header.php";
-		?>
 		<div class="container" style="padding: 40px 15px">
 
 			<div class="page-header">

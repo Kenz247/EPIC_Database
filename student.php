@@ -1,8 +1,10 @@
-<body>
+<head>
   <?php
-  $foo = 4;
-    include "header.php";
-  ?>
+  $foo=4;
+  include "header.php";
+   ?>
+</head>
+<body>
   <div class="container" style="padding: 40px 15px">
     <div class="page-header">
       <h1>Students</h1>

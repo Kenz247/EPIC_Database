@@ -1,10 +1,9 @@
 <head>
-
     <?php
     $foo = 5;
       include "header.php";
     ?>
-  </head>
+</head>
 <body>
   <div class="container" style="padding: 40px 15px">
 

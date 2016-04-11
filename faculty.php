@@ -1,6 +1,11 @@
+<head>
+  <?php
+  $foo=3;
+  include "header.php"
+  ?>
+</head>
+
 <?php
-$foo = 3;
-  include "header.php";
 define( 'PARAM', 'var1' );
 $var1 = '';
 if ( isset( $_GET[ PARAM ] ) )

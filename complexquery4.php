@@ -1,24 +1,27 @@
-<body>
+<head>
   <?php
   $foo = 9;
     include "header.php";
   ?>
+</head>
+
+<body>
   <div class="container" style="padding: 40px 15px">
 
     <div class="page-header">
-      <h1>Other Stuffs aka Complex Queries!!</h1>
+      <h1>Complex Query 4</h1>
     </div>
     <p>
-      <b>DB Connection</b>:
+      <!--b>DB Connection</b>:-->
       <?php
         error_reporting( E_STRICT );
         mysqli_report( MYSQLI_REPORT_STRICT );
         try {
           $mysqli = new mysqli( DB_SERVER, DB_USER, DB_PW, DB_NAME );
-          echo ( '<span class="label label-success">Success</span>' );
+          //echo ( '<span class="label label-success">Success</span>' );
           $connected = true;
         } catch (Exception $e) {
-          echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $e->getMessage() ) . '</span>' );
           $connected = false;
         }
       ?>
@@ -38,17 +41,15 @@
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 
-  <hr />
 
   <?php
     if ( $connected )
     {
   ?>
 
-    <hr />
 
     <p>
-      <b>SQL to Prepare</b>:
+      <!--<b>SQL to Prepare</b>:-->
       <?php
         $sql = null;
         if ( !is_null( $param ) )
@@ -72,21 +73,21 @@
                     ') ' .
                     'order by section.CourseNum asc, section.SecNum asc; ' ;
         }
-        echo ( '<code>' . htmlentities( $sql ) . '</code>' );
+        //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
       ?>
     </p>
 
     <p>
-      <b>Preparing</b>:
+      <!--<b>Preparing</b>:-->
       <?php
         if ( !( $stmt = $mysqli->prepare( $sql ) ) )
         {
-          echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
           return;
         }
         else
         {
-          echo '<span class="label label-success">Success</span>';
+        //  echo '<span class="label label-success">Success</span>';
         }
       ?>
     </p>
@@ -96,16 +97,16 @@
       {
     ?>
       <p>
-        <b>Binding parameter</b>:
+        <!--<b>Binding parameter</b>:-->
         <?php
           if ( !$stmt->bind_param( "s", $param ) )
           {
-            echo ( '<span class="label label-danger">binding error</span>' );
+            //echo ( '<span class="label label-danger">binding error</span>' );
             return;
           }
           else
           {
-            echo '<span class="label label-success">Success</span>';
+            //echo '<span class="label label-success">Success</span>';
           }
         ?>
       </p>
@@ -114,21 +115,20 @@
     ?>
 
     <p>
-      <b>Executing</b>:
+      <!--<b>Executing</b>:-->
       <?php
         if ( !$stmt->execute() )
         {
-          echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
+          //echo ( '<span class="label label-danger">' . htmlentities( $stmt->error ) . '</span>' );
           return;
         }
         else
         {
-          echo '<span class="label label-success">Success</span>';
+          //echo '<span class="label label-success">Success</span>';
         }
       ?>
     </p>
 
-    <hr />
 
     <p>
       <h1>Results</h1>
@@ -153,9 +153,9 @@
     <hr />
 
     <p>
-      <b>DB Disconnection</b>:
+      <!--<b>DB Disconnection</b>:-->
       <?php
-        echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
+        //echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
       ?>
     </p>
 

@@ -1,13 +1,12 @@
 <body>
   <?php
-  $foo = 10;
+  $foo = 9;
     include "header.php";
   ?>
   <div class="container" style="padding: 40px 15px">
 
     <div class="page-header">
       <h1>Other Stuffs aka Complex Queries!!</h1>
-      <h3>List the materials that were used by a department that has no chair.</h3>
     </div>
     <p>
       <b>DB Connection</b>:
@@ -25,38 +24,54 @@
       ?>
     </p>
 
-    <?php
-      if ( $connected )
-      {
-    ?>
-        <p>
-          <b>Character Set UTF-8</b>:
-          <?php
-            if (!$mysqli->set_charset('utf8')) {
-              echo ( '<span class="label label-danger">' . htmlentities( $mysqli->error ) . '</span>' );
-              $connected = false;
-            } else {
-              echo ( '<span class="label label-success">Success</span>' );
-            }
-          ?>
-        </p>
-    <?php
-      }
-    ?>
 
-    <?php
-      if ( $connected )
-      {
-    ?>
+
+
+<p>
+<h2>  Get the information for a class that a professor teaches who has the same interest as the student with entered id. </h2>
+
+  <form method="GET" action="<?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?>">
+    <div class="form-group">
+      <label for="exampleInput">Enter Student Id <small>(1 is the only id that has data for it)</small></label>
+        <input type="text" class="form-control" id="exampleInput" name="<?php echo htmlentities( PARAM_NAME ); ?>" placeholder="n/a" value="1">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+  <hr />
+
+  <?php
+    if ( $connected )
+    {
+  ?>
+
+    <hr />
 
     <p>
       <b>SQL to Prepare</b>:
       <?php
         $sql = null;
-          $sql = 'select materials.name as Material_Name, materials.quantity as Quantity, materials.unitprice as Unit_Price, project.name as Project_name '.
-          'from materials inner join project on project.ID = materials.ProjectId where project.ID = ( select project.ID from project inner join faculty_works_on '.
-          'on project.ID = faculty_works_on.ProjectId inner join faculty on faculty.ID = faculty_works_on.FacultyId left outer join department on faculty.DeptId = department.ID '.
-          'where department.DeptHead is NULL ) order by materials.UnitPrice desc, materials.QUANTITY ASC';
+        if ( !is_null( $param ) )
+        {
+          $sql = 'Select course.Name as Course_Name, section.SecNum as Section_Number, section.CourseNum as Course_Number ' .
+                  'from section inner join course on section.CourseNum = course.CourseNum ' .
+                  'where section.ProfId = ( ' .
+                    'select section.ProfId ' .
+                    'from section inner join faculty on section.ProfId = faculty.ID ' .
+                    'where faculty.ID = ( ' .
+                      'SELECT faculty.ID ' .
+                      'from faculty INNER JOIN facultyinterests on facultyinterests.FacultyId = faculty.ID ' .
+                      'inner join interests on facultyinterests.InterestId = interests.InterestID ' .
+                      'where interests.Interest = ( ' .
+                        'SELECT interests.Interest ' .
+                        'from interests inner join studentinterests on interests.InterestID = studentinterests.InterestId ' .
+                        'inner join student on studentinterests.StudentId = student.ID ' .
+                        'WHERE student.ID = ? ' .
+                        ') ' .
+                      ') ' .
+                    ') ' .
+                    'order by section.CourseNum asc, section.SecNum asc; ' ;
+        }
         echo ( '<code>' . htmlentities( $sql ) . '</code>' );
       ?>
     </p>
@@ -76,7 +91,27 @@
       ?>
     </p>
 
-
+    <?php
+      if ( !is_null( $param ) )
+      {
+    ?>
+      <p>
+        <b>Binding parameter</b>:
+        <?php
+          if ( !$stmt->bind_param( "s", $param ) )
+          {
+            echo ( '<span class="label label-danger">binding error</span>' );
+            return;
+          }
+          else
+          {
+            echo '<span class="label label-success">Success</span>';
+          }
+        ?>
+      </p>
+    <?php
+      }
+    ?>
 
     <p>
       <b>Executing</b>:
@@ -92,37 +127,46 @@
         }
       ?>
     </p>
+
+    <hr />
+
     <p>
-      <h1 style="text-align:left">Results <small>(All departments currenty have heads so query returns nothing)</small></h1>
+      <h1>Results</h1>
       <ul class="list-group">
       <?php
-        $mat_name = null;
-        $quantity = null;
-        $unit_price = null;
-        $project_name = null;
-        $stmt->bind_result($mat_name, $quantity, $unit_price, $project_name);
+        $course_name = null;
+        $sec_num = null;
+        $course_num = null;
+        $stmt->bind_result( $course_name, $sec_num, $course_num);
         while ( $stmt->fetch() )
         {
-          echo '<address>';
-           echo ('<strong> Material Name: ' . htmlentities($mat_name) . '</strong><br>');
-           echo('Quantity: ' . htmlentities($quantity) . '<br>');
-           echo('Unit Price: $' . htmlentities($unit_price) . '<br>');
-           echo('Project: ' . htmlentities($project_name) . '<br>');
-          echo '</address>';
+          echo '<li class="list-group-item">';
+          echo ( '<strong> Course Name: </strog>' . htmlentities( $course_name) . '<br>' );
+          echo ( 'Course Number: '. htmlentities( $course_num ) . '-'. htmlentities($sec_num) .'<br>' );
+          echo '</li>';
         }
         $stmt->close();
       ?>
     </ul>
     </p>
 
+    <hr />
 
-        <hr />
-<?php } ?>
-        <p>
-          <b>DB Disconnection</b>:
-          <?php
-            echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
-          ?>
-        </p>
+    <p>
+      <b>DB Disconnection</b>:
+      <?php
+        echo ( ( $mysqli->close() )?( '<span class="label label-success">Success</span>' ):( '<span class="label label-danger">Failure</span>' ) );
+      ?>
+    </p>
 
-    </div>
+  <?php
+    }
+  ?>
+</div>
+
+
+
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>

@@ -1,6 +1,6 @@
 <body>
   <?php
-  $foo = 9;
+  $foo = 8;
     include "header.php";
   ?>
   <div class="container" style="padding: 40px 15px">
@@ -25,15 +25,11 @@
     </p>
 
 
-
-
-<p>
-<h2>  Get the information for a class that a professor teaches who has the same interest as the student with entered id. </h2>
-
+<h2> Get student and class info that is working on a project with the company that sent #x email </h2>
   <form method="GET" action="<?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?>">
     <div class="form-group">
-      <label for="exampleInput">Enter Student Id <small>(1 is the only id that has data for it)</small></label>
-        <input type="text" class="form-control" id="exampleInput" name="<?php echo htmlentities( PARAM_NAME ); ?>" placeholder="n/a" value="1">
+      <label for="exampleInput">Enter Doc Id <small>(4 is the only value that has data for it</small>)</label>
+        <input type="text" class="form-control" id="exampleInput" name="<?php echo htmlentities( PARAM_NAME ); ?>" placeholder="n/a" value="4">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
@@ -53,24 +49,28 @@
         $sql = null;
         if ( !is_null( $param ) )
         {
-          $sql = 'Select course.Name as Course_Name, section.SecNum as Section_Number, section.CourseNum as Course_Number ' .
-                  'from section inner join course on section.CourseNum = course.CourseNum ' .
-                  'where section.ProfId = ( ' .
-                    'select section.ProfId ' .
-                    'from section inner join faculty on section.ProfId = faculty.ID ' .
-                    'where faculty.ID = ( ' .
-                      'SELECT faculty.ID ' .
-                      'from faculty INNER JOIN facultyinterests on facultyinterests.FacultyId = faculty.ID ' .
-                      'inner join interests on facultyinterests.InterestId = interests.InterestID ' .
-                      'where interests.Interest = ( ' .
-                        'SELECT interests.Interest ' .
-                        'from interests inner join studentinterests on interests.InterestID = studentinterests.InterestId ' .
-                        'inner join student on studentinterests.StudentId = student.ID ' .
-                        'WHERE student.ID = ? ' .
-                        ') ' .
+          $sql = 'select student.FirstName as First_Name, student.LastName as Last_Name, course.Name as Course_name, ' .
+                'section.CourseNum as Course, section.SecNum as section, concat(faculty.FirstName, " ", faculty.lastName) as Prof_Name ' .
+                'from student inner join studenttakes on student.ID = studenttakes.StudentId ' .
+                'inner join section on studenttakes.CourseNum = section.CourseNum AND studenttakes.SecNum = section.SecNum ' .
+                'inner join course on course.courseNum=section.courseNum ' .
+                'inner join project on section.ProjectId = project.ID ' .
+                'inner join faculty on faculty.id=section.profid ' .
+                'WHERE project.ID = ( ' .
+                  'select project.ID ' .
+                  'from project inner join company_collaborates_on on project.ID = company_collaborates_on.ProjectId ' .
+                  'inner join company on company_collaborates_on.CompanyId = company.ID ' .
+                  'inner join contact on contact.ID = company.ContactId ' .
+                  'where contact.ID = ( ' .
+                    'select contact.ID ' .
+                    'from contact ' .
+                    'where contact.Email = ( ' .
+                      'select emails.Sender ' .
+                      'from emails ' .
+                      'where emails.DocID = ? ' .
                       ') ' .
                     ') ' .
-                    'order by section.CourseNum asc, section.SecNum asc; ' ;
+                  '); ';
         }
         echo ( '<code>' . htmlentities( $sql ) . '</code>' );
       ?>
@@ -92,7 +92,7 @@
     </p>
 
     <?php
-      if ( !is_null( $param ) )
+      if ( !is_null( $param) )
       {
     ?>
       <p>
@@ -134,15 +134,20 @@
       <h1>Results</h1>
       <ul class="list-group">
       <?php
+        $sfirst_name = null;
+        $slast_name = null;
         $course_name = null;
-        $sec_num = null;
-        $course_num = null;
-        $stmt->bind_result( $course_name, $sec_num, $course_num);
+        $course_num=null;
+        $course_section=null;
+        $prof_name=null;
+        $stmt->bind_result( $sfirst_name, $slast_name, $course_name, $course_num, $course_section, $prof_name);
         while ( $stmt->fetch() )
         {
           echo '<li class="list-group-item">';
           echo ( '<strong> Course Name: </strog>' . htmlentities( $course_name) . '<br>' );
-          echo ( 'Course Number: '. htmlentities( $course_num ) . '-'. htmlentities($sec_num) .'<br>' );
+          echo ( 'Course Number: '. htmlentities( $course_num ) . '-'. htmlentities($sec_num));
+          echo ( ' Professor: ' .  htmlentities($prof_name) . '<br>');
+          echo ('Student Name: '. htmlentitites($sfirst_name) . ' ' . htmlentitites($slast_name));
           echo '</li>';
         }
         $stmt->close();
@@ -159,14 +164,14 @@
       ?>
     </p>
 
-  <?php
+    <?php
     }
-  ?>
-</div>
+    ?>
+    </div>
 
 
 
-<script src="js/jquery-1.12.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
-</body>
+    </body>

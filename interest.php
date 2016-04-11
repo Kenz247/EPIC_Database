@@ -103,14 +103,14 @@
         $stmt->bind_result($interest_id, $interest_name);
         while ( $stmt->fetch() )
         {
-              echo ('<input type="checkbox" name="options[]" value="' . htmlentities($interest_id) . '"/>' . htmlentities($interest_name) . '<br />');
+              echo ('<input type="checkbox" name="options[]" value="' . htmlentities($interest_id) . '"/> ' . htmlentities($interest_name) . '<br />');
         }
         $stmt->close();
       ?>
 
     <br />
     <h4>Show similarities with</h4>
-    <input type="radio" name="filter" value="1" />Projects<br />
+    <input checked="checked" type="radio" name="filter" value="1" />Projects<br />
     <input type="radio" name="filter" value="2" />Students<br />
     <input type="radio" name="filter" value="3" />Faculty<br />
     <input type="radio" name="filter" value="4" />Students and Faculty<br />
@@ -123,6 +123,12 @@
     </form>
         <?php
         $interest_list = isset($_POST['options']) ? $_POST['options'] : '';
+        $N = count($interest_list);
+        for($i = 0; $i < $N; $i++){
+          if(isset($_POST['options[' . htmlentities($i) . ']'])){
+
+          }
+        }
         $filter = isset($_POST['filter']) ? $_POST['filter'] : '';
         $interest_where = 'Interests.InterestID = ';
         $param = null;
@@ -275,6 +281,7 @@
       $project_status = null;
       $leader_name = null;
       $stmt->bind_result($project_id, $project_name, $project_status, $leader_name);
+    
 
       while ( $stmt->fetch() )
       {

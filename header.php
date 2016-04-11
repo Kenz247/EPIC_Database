@@ -118,21 +118,21 @@
           echo('class="active"');
         }
         ?>
-        ><a href="complexquery2.php">Query3</a></li>
+        ><a href="complexquery3.php">Query3</a></li>
 
         <li
         <?php if($foo == 9){
           echo('class="active"');
         }
         ?>
-        ><a href="complexquery3.php">Query4</a></li>
+        ><a href="complexquery4.php">Query4</a></li>
 
         <li
         <?php if($foo == 10){
           echo('class="active"');
         }
         ?>
-        ><a href="complexquery4.php">Query5</a></li>
+        ><a href="complexquery5.php">Query5</a></li>
 
 
       </ul>

@@ -36,7 +36,7 @@
   <form method="GET" action="<?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?>">
     <div class="form-group">
       <label for="exampleInput">Enter Student Id </label>
-        <input type="text" class="form-control" id="exampleInput" name="<?php echo htmlentities( PARAM_NAME ); ?>" placeholder="n/a" value="1">
+        <input type="text" class="form-control" id="exampleInput" name="<?php echo htmlentities( PARAM_NAME ); ?>" placeholder="n/a" value="3">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>

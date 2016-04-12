@@ -31,7 +31,7 @@
 <h2> Get information on a class that is working on a project with the company that sent (entered) email </h2>
   <form method="GET" action="<?php echo htmlentities( $_SERVER['PHP_SELF'] ); ?>">
     <div class="form-group">
-      <label for="exampleInput">Enter Doc Id <small>(4 is the only value that has data for it</small>)</label>
+      <label for="exampleInput">Enter Doc Id </label>
         <input type="text" class="form-control" id="exampleInput" name="<?php echo htmlentities( PARAM_NAME ); ?>" placeholder="n/a" value="4">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>

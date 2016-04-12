@@ -191,14 +191,16 @@
               $sql = 'SELECT Student.FirstName as FirstName, Student.LastName as LastName, Student.Email, Major.Name as Major, ' .
                 'Project.Name as Project ' .
                 'From Student inner join Major on Student.Major_ID = Major.ID inner join Student_Works_on on Student.Id = Student_Works_on.StudentId ' .
-                'inner join Project on Project.ID = Student_Works_on.ProjectId ';
+                'inner join Project on Project.ID = Student_Works_on.ProjectId '.
+                'ORDER BY project.name asc ' ;
           }
           else{
               $sql = 'SELECT Student.FirstName as FirstName, Student.LastName as LastName, Student.Email, Major.Name as Major, ' .
                 'Project.Name as Project ' .
                 'From Student inner join Major on Student.Major_ID = Major.ID inner join Student_Works_on on Student.Id = Student_Works_on.StudentId ' .
                 'inner join Project on Project.ID = Student_Works_on.ProjectId ' .
-                'where Project.ID = ?';
+                'where Project.ID = ? ' .
+                'order by project.Name asc ';
           }
         //echo ( '<code>' . htmlentities( $sql ) . '</code>' );
 

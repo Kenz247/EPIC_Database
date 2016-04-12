@@ -136,7 +136,7 @@
         $sql = null;
         if ( !is_null( $param ))
         {
-          $sql = 'SELECT department.Name, concat("",round((ifnull(sum(materials.UnitPrice),0)),2)) ' .
+          $sql = 'SELECT department.Name, concat("",round((ifnull(sum(materials.UnitPrice*materials.quantity),0)),2)) ' .
                   'FROM department LEFT JOIN faculty ON department.ID = faculty.DeptId ' .
                   'LEFT JOIN faculty_works_on ON faculty.ID =faculty_works_on.FacultyId ' .
                   'LEFT JOIN project ON faculty_works_on.ProjectId = project.ID ' .
